@@ -62,7 +62,7 @@ router.post("/login", checkUsernameExists, (req, res, next) => {
 function generateJwt(user) {
   const payload = ({
     role_name: user.role_name,
-    subject: user.id,
+    subject: user.user_id,
     username: user.username,
   });
 
