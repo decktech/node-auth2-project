@@ -60,11 +60,11 @@ router.post("/login", checkUsernameExists, (req, res, next) => {
 });
 
 function generateJwt(user) {
-  const payload = {
+  const payload = ({
+    role_name: user.role_name,
     subject: user.id,
     username: user.username,
-    role_name: user.role_name,
-  };
+  });
 
   const config = { expiresIn: '1d' };
 
